@@ -88,5 +88,45 @@ describe StringCalculator do
     end# two numbers
   end #.subtract
 
+  describe '.multiply' do
+    context 'given an empty string' do
+      it 'returns zero' do
+        expect(StringCalculator.multiply('')).to eql(0)
+      end
+    end
+
+    context 'given a single number' do
+      context 'that is single-digit' do
+        it 'returns that single-digit number' do
+          expect(StringCalculator.multiply('5')).to eql(5)
+        end
+      end
+
+      context 'that is multi-digit' do
+        it 'returns that multi-digit number' do
+          expect(StringCalculator.multiply('10')).to eql(10)
+        end
+      end
+    end# single number
+
+    context 'given two numbers' do
+      context '2,5' do
+        it 'returns 10' do
+          expect(StringCalculator.multiply('2,5')).to eql(10)
+        end
+      end
+      context '-2,5' do
+        it 'returns -10' do
+          expect(StringCalculator.multiply('-2,5')).to eql(-10)
+        end
+      end
+      context '-2,-5' do
+        it 'returns 10' do
+          expect(StringCalculator.multiply('-2,-5')).to eql(10)
+        end
+      end
+    end# two numbers
+  end #describe '.multiply'
+
 
 end
