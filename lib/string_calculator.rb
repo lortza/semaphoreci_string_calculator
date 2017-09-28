@@ -17,16 +17,12 @@ class StringCalculator
     if is_empty(nums)
       0
     else
-      if has_1_input(nums)
+      num1 = nums.split(',')[0].to_i
+      num2 = nums.split(',')[-1].to_i
+      if num1 % num2 == 0
         as_integers(nums).reduce(:/)
       else
-        num1 = nums.split(',')[0].to_i
-        num2 = nums.split(',')[1].to_i
-        if num1 % num2 == 0
-          as_integers(nums).reduce(:/)
-        else
-          as_floats(nums).reduce(:/)
-        end
+        as_floats(nums).reduce(:/)
       end
     end
   end #divide
