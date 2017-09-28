@@ -128,5 +128,50 @@ describe StringCalculator do
     end# two numbers
   end #describe '.multiply'
 
+  describe '.divide' do
+    context 'given an empty string' do
+      it 'returns zero' do
+        expect(StringCalculator.divide('')).to eql(0)
+      end
+    end
+
+    context 'given a single number' do
+      it 'returns that single-digit number' do
+        expect(StringCalculator.divide('1')).to eql(1)
+      end
+    end# single number
+
+    context 'given two numbers' do
+      context 'it divides the first number by the second number' do
+        context 'when the first number is divisible by the second' do
+
+          context '10,5' do
+            it 'returns 2' do
+              expect(StringCalculator.divide('10,5')).to eql(2)
+            end
+          end
+          context '-15,3' do
+            it 'returns -5' do
+              expect(StringCalculator.divide('-15,3')).to eql(-5)
+            end
+          end
+          context '15,-3' do
+            it 'returns -5' do
+              expect(StringCalculator.divide('15,-3')).to eql(-5)
+            end
+          end
+        end
+
+        context 'when the first number is not divisible by the second' do
+          context '1,8' do
+            it 'returns 0.125' do
+              expect(StringCalculator.divide('1,8')).to eql(0.125)
+            end
+          end
+        end
+      end #divides first from second
+    end# two numbers
+  end #.divide
+
 
 end
