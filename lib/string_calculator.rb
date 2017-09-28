@@ -1,19 +1,18 @@
 class StringCalculator
 
   def self.add(nums='')
-    nums.empty? ? 0 : nums.split(',').map(&:to_i).reduce(:+)
+    nums.empty? ? 0 : as_integers(nums).reduce(:+)
   end
 
   def self.subtract(nums='')
-    nums.empty? ? 0 : nums.split(',').map(&:to_i).reduce(:-)
+    nums.empty? ? 0 : as_integers(nums).reduce(:-)
   end
 
   def self.multiply(nums='')
-    nums.empty? ? 0 : nums.split(',').map(&:to_i).reduce(:*)
+    nums.empty? ? 0 : as_integers(nums).reduce(:*)
   end
 
   def self.divide(nums='')
-
     if nums.empty?
       0
     else
