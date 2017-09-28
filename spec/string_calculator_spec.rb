@@ -48,4 +48,45 @@ describe StringCalculator do
   end #describe '.add'
 
 
+  describe '.subtract' do
+    context 'given an empty string' do
+      it 'returns zero' do
+        expect(StringCalculator.subtract('')).to eql(0)
+      end
+    end
+
+    context 'given a single number' do
+      it 'returns that single-digit number' do
+        expect(StringCalculator.subtract('1')).to eql(1)
+      end
+    end# single number
+
+    context 'given two numbers' do
+      context 'it subtracts the second number from the first number' do
+
+        context '5,3' do
+          it 'returns 2' do
+            expect(StringCalculator.subtract('5,3')).to eql(2)
+          end
+        end
+        context '-5,3' do
+          it 'returns -8' do
+            expect(StringCalculator.subtract('-5,3')).to eql(-8)
+          end
+        end
+        context '5,-3' do
+          it 'returns 8' do
+            expect(StringCalculator.subtract('5,-3')).to eql(8)
+          end
+        end
+        context '3,5' do
+          it 'returns -2' do
+            expect(StringCalculator.subtract('3,5')).to eql(-2)
+          end
+        end
+      end #subtracts first from second
+    end# two numbers
+  end #.subtract
+
+
 end
