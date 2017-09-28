@@ -1,20 +1,20 @@
 class StringCalculator
 
   def self.add(nums='')
-    nums == '' ? 0 : nums.split(',').map(&:to_i).reduce(:+)
+    nums.empty? ? 0 : nums.split(',').map(&:to_i).reduce(:+)
   end
 
   def self.subtract(nums='')
-    nums == '' ? 0 : nums.split(',').map(&:to_i).reduce(:-)
+    nums.empty? ? 0 : nums.split(',').map(&:to_i).reduce(:-)
   end
 
   def self.multiply(nums='')
-    nums == '' ? 0 : nums.split(',').map(&:to_i).reduce(:*)
+    nums.empty? ? 0 : nums.split(',').map(&:to_i).reduce(:*)
   end
 
   def self.divide(nums='')
 
-    if is_empty(nums)
+    if nums.empty?
       0
     else
       num1 = nums.split(',')[0].to_i
@@ -28,10 +28,6 @@ class StringCalculator
   end #divide
 
   private
-
-  def self.is_empty(nums)
-    nums == ''
-  end
 
   def self.has_1_input(nums)
     nums.split(',').length == 1
